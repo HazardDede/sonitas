@@ -1,5 +1,5 @@
 """Audio Device related stuff."""
-from typing import Mapping, List
+from typing import Mapping, List, Union
 
 import pyaudio
 from pydantic import BaseModel
@@ -20,7 +20,7 @@ class AudioDevice(BaseModel):
     max_output_channels: int
 
     @classmethod
-    def from_pyaudio(cls, index: int, device_info: Mapping[str, str | int | float]):
+    def from_pyaudio(cls, index: int, device_info: Mapping[str, Union[str, int, float]]) -> 'AudioDevice':
         """Parses a device mapping from pyaudio into an `AudioDevice` instance."""
         return cls(
             index=int(index),
