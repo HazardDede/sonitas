@@ -21,7 +21,7 @@ jobs:
       - name: Install Poetry
         run: pipx install poetry
       - name: Install portaudio
-        run: apt-get install build-essential portaudio19-dev
+        run: sudo apt-get install -y build-essential portaudio19-dev
       - name: Install dependencies
         env:
           POETRY_INSTALLER_NO_BINARY: "false"
