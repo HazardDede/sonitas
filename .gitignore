@@ -178,3 +178,4 @@ cython_debug/
 
 # Any wav sound files
 *.wav
+sounds/
