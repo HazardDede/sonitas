@@ -45,7 +45,7 @@ class PyAudioRecorder(Recorder):
                 raise exc.NoInputDeviceError("No available input device found.")
             return device
 
-        devices = self.device_manager.list(include_output=False)
+        devices = self.device_manager.list()
         device = next((d for d in devices if d.index == index), None)
         if not device:
             raise exc.InvalidDeviceError(f"Invalid device index: {index}.")

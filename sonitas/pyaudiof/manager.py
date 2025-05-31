@@ -31,7 +31,7 @@ class PyAudioDeviceManager(AudioDeviceManager):
             return None
         return devices[0]
 
-    def list(self, include_input: bool = True, include_output: bool = False) -> List[AudioDevice]:
+    def list(self, include_input: bool = True, include_output: bool = True) -> List[AudioDevice]:
         res = []
         for i in range(self._pa.get_device_count()):
             dev = self._pa.get_device_info_by_index(i)

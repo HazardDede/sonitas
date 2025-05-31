@@ -47,10 +47,13 @@ class Entrypoint:  # pylint: disable=too-few-public-methods
             recording.to_wav(file_path)
             print(f"Wave file written to {file_path} @ {recording.frame_rate} Hz")
         except (exc.InvalidDeviceError, exc.NoInputDeviceError) as derr:
+            device_str = '\n'.join([str(item) for item in Entrypoint.list(include_output=False)])
+            if not device_str:
+                device_str = "No input devices found."
             print(
                 str(derr),
                 f"\nThe following devices are available:\n"
-                f"{'\n'.join([str(item) for item in Entrypoint.list(include_output=False)])}"
+                f"{device_str}"
             )
         except KeyboardInterrupt:
             pass
