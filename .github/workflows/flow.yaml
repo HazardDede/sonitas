@@ -27,4 +27,4 @@ jobs:
           POETRY_INSTALLER_NO_BINARY: "false"
         run: poetry install --no-root
       - name: Linting
-        run: poetry run inv lint
+        run: poetry run inv lint test
